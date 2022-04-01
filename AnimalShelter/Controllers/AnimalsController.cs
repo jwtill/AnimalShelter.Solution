@@ -117,6 +117,15 @@ namespace AnimalShelter.Controllers
 
       return NoContent();
     }
+    [HttpGet("Random")]
+    public async Task<ActionResult<Animal>> RandomPlace()
+    {
+      Random random = new Random();
+      int dbCount = _db.Animals.Count();
+      int id = random.Next(1, dbCount);
+      var place = await _db.Animals.FindAsync(id);
+      return place;
+    }
     private bool AnimalExists(int id)
     {
       return _db.Animals.Any(e => e.AnimalId == id);
