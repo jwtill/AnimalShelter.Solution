@@ -179,6 +179,35 @@ namespace AnimalShelter.Controllers
       var animal = await _db.Animals.FindAsync(id);
       return animal;
     }
+    /// <summary>
+    /// Changes a given animal's Adopted status.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="adopted"></param>
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> Patch(int id, bool adopted)
+    {
+      var animal = await _db.Animals.FindAsync(id);
+      animal.Adopted = adopted;
+      _db.Entry(animal).State = EntityState.Modified;
+      try
+      {
+        await _db.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!AnimalExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+    
+      return NoContent();
+    }
     private bool AnimalExists(int id)
     {
       return _db.Animals.Any(e => e.AnimalId == id);
