@@ -1,5 +1,5 @@
 
-# Animal Shelter
+<center># Animal Shelter</center>
 
 ------------------------------
 

@@ -73,6 +73,26 @@ namespace AnimalShelter.Controllers
       return await query.ToListAsync();
     }
     /// <summary>
+    /// Gets a list of all cats.
+    /// </summary>
+    [HttpGet("Cats")]
+    public async Task<ActionResult<IEnumerable<Animal>>> Cats()
+    {
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+      query = query.Where(entry => entry.Species == "Cat");
+      return await query.ToListAsync();
+    }
+     /// <summary>
+    /// Gets a list of all cats.
+    /// </summary>
+    [HttpGet("Dogs")]
+    public async Task<ActionResult<IEnumerable<Animal>>> Dogs()
+    {
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+      query = query.Where(entry => entry.Species == "Dog");
+      return await query.ToListAsync();
+    }
+    /// <summary>
     /// Adds a new animal
     /// </summary>
     /// <remarks>
