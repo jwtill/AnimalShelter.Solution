@@ -3,7 +3,6 @@
 
 ------------------------------
 
-    
 ------------------------------
 
 ## About the Project
@@ -12,7 +11,7 @@
 An API that serves up info on current animals in our shelter.
 
 ### Known Bugs
-
+Patch route is not functional.
 
 ### Built With
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -93,24 +92,26 @@ An API that serves up info on current animals in our shelter.
 
 
 ### Using Swagger Documentation 
+Swagger is a tool for documenting endpoints using a UI that is straightforward to navigate.
 Navigate to localhost:5001 or localhost:5000 and you will be redirected to the Swagger index, where you can explore endpoints and their requirements.
-### Routes
 
-## GET /api​/Animals
+### Routes
+------------------------------
+#### GET /api​/Animals
 - Gets an animal based on URL parameters.
-## POST ​/api​/Animals
+#### POST ​/api​/Animals
 - Adds a new animal
-## GET /api​/Animals​/Adoptable
+#### GET /api​/Animals​/Adoptable
 - Gets a list of animals that have not been adopted.
-## GET /api​/Animals​/{id}
+#### GET /api​/Animals​/{id}
 - Gets an animal based on ID.
-## PUT /api​/Animals​/{id}
+#### PUT /api​/Animals​/{id}
 - Updates an animal with a given ID.
-## DELETE /api​/Animals​/{id}
+#### DELETE /api​/Animals​/{id}
 - Deletes an animal with a given ID.
-## PATCH /api​/Animals​/{id}
+#### PATCH /api​/Animals​/{id}
 - Changes a given animal's Adopted status.
-## GET /api​/Animals​/Random
+#### GET /api​/Animals​/Random
 - Gets a random animal.
 
 
