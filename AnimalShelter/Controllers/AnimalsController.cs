@@ -21,6 +21,7 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
+
     [HttpGet]
     public async Task<List<Animal>> Get(string name, string species, string sex, bool adopted, int minAge)
     {
@@ -51,6 +52,14 @@ namespace AnimalShelter.Controllers
         query = query.Where(entry => entry.Age >= minAge);
       }
 
+      return await query.ToListAsync();
+    }
+
+    [HttpGet("Adoptable")]
+    public async Task<ActionResult<IEnumerable<Animal>>> Adoptable()
+    {
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+      query = query.Where(entry => entry.Adopted == false);
       return await query.ToListAsync();
     }
 
@@ -118,13 +127,13 @@ namespace AnimalShelter.Controllers
       return NoContent();
     }
     [HttpGet("Random")]
-    public async Task<ActionResult<Animal>> RandomPlace()
+    public async Task<ActionResult<Animal>> RandomAnimal()
     {
       Random random = new Random();
       int dbCount = _db.Animals.Count();
       int id = random.Next(1, dbCount);
-      var place = await _db.Animals.FindAsync(id);
-      return place;
+      var animal = await _db.Animals.FindAsync(id);
+      return animal;
     }
     private bool AnimalExists(int id)
     {
