@@ -32,14 +32,13 @@ namespace AnimalShelter
     c.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "ToDo API",
-        Description = "A simple example ASP.NET Core Web API",
-        TermsOfService = new Uri("https://example.com/terms"),
+        Title = "Animal Shelter API",
+        Description = "API for animals of the shelter",
         Contact = new OpenApiContact
         {
-            Name = "Shayne Boyer",
-            Email = string.Empty,
-            Url = new Uri("https://twitter.com/spboyer"),
+            Name = "Josh Tillinghast",
+            Email = "jwtill@icloud.com",
+            Url = new Uri("https://github.com/jwtill"),
         },
         License = new OpenApiLicense
         {
