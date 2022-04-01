@@ -21,7 +21,14 @@ namespace AnimalShelter.Controllers
       _db = db;
     }
 
-
+    /// <summary>
+    /// Gets an animal based on URL parameters.
+    /// </summary>
+    /// <param name="name"></param> 
+    /// <param name="species"></param>
+    /// <param name="sex"></param>
+    /// <param name="adopted"></param>
+    /// <param name="minAge"></param>
     [HttpGet]
     public async Task<List<Animal>> Get(string name, string species, string sex, bool adopted, int minAge)
     {
@@ -54,7 +61,9 @@ namespace AnimalShelter.Controllers
 
       return await query.ToListAsync();
     }
-
+    /// <summary>
+    /// Gets a list of animals that have not been adopted.
+    /// </summary>
     [HttpGet("Adoptable")]
     public async Task<ActionResult<IEnumerable<Animal>>> Adoptable()
     {
@@ -62,7 +71,10 @@ namespace AnimalShelter.Controllers
       query = query.Where(entry => entry.Adopted == false);
       return await query.ToListAsync();
     }
-
+    /// <summary>
+    /// Adds a new animal
+    /// </summary>
+    /// <param name="animal"></param>
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {
@@ -71,6 +83,10 @@ namespace AnimalShelter.Controllers
 
       return CreatedAtAction("Post", new { id = animal.AnimalId }, animal);
     }
+    /// <summary>
+    /// Gets an animal based on ID.
+    /// </summary>
+    /// <param name="id"></param>
     [HttpGet("{id}")]
     public async Task<ActionResult<Animal>> GetAnimal(int id)
     {
@@ -83,7 +99,11 @@ namespace AnimalShelter.Controllers
 
       return CreatedAtAction(nameof(GetAnimal), new { id = animal.AnimalId }, animal);
     }
-
+    /// <summary>
+    /// Updates an animal with a given ID.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="animal"></param>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Animal animal)
     {
@@ -111,7 +131,10 @@ namespace AnimalShelter.Controllers
       }
       return NoContent();
     }
-
+    /// <summary>
+    /// Deletes an animal with a given ID.
+    /// </summary>
+    /// <param name="id"></param>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
@@ -126,6 +149,9 @@ namespace AnimalShelter.Controllers
 
       return NoContent();
     }
+    /// <summary>
+    /// Gets a random animal.
+    /// </summary>
     [HttpGet("Random")]
     public async Task<ActionResult<Animal>> RandomAnimal()
     {
