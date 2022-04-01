@@ -22,9 +22,36 @@ namespace AnimalShelter.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Animal>>> Get()
+    public async Task<List<Animal>> Get(string name, string species, string sex, bool adopted, int minAge)
     {
-      return await _db.Animals.ToListAsync();
+      IQueryable<Animal> query = _db.Animals.AsQueryable();
+
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+
+      if (species != null)
+      {
+        query = query.Where(entry => entry.Species == species);
+      }
+
+      if (sex != null)
+      {
+        query = query.Where(entry => entry.Sex == sex);
+      }
+
+      if (adopted == true || false)
+      {
+        query = query.Where(entry => entry.Adopted == adopted);
+      }
+
+      if (minAge > 0)
+      {
+        query = query.Where(entry => entry.Age >= minAge);
+      }
+
+      return await query.ToListAsync();
     }
 
     [HttpPost]
@@ -75,7 +102,7 @@ namespace AnimalShelter.Controllers
       }
       return NoContent();
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAnimal(int id)
     {
