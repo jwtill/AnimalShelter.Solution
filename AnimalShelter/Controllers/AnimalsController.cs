@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace AnimalShelter.Controllers
 {
+  [Produces("application/json")]
   [Route("api/[controller]")]
   [ApiController]
   public class AnimalsController : ControllerBase
@@ -74,7 +75,24 @@ namespace AnimalShelter.Controllers
     /// <summary>
     /// Adds a new animal
     /// </summary>
+    /// <remarks>
+    /// Sample request:
+    ///     POST /AnimalShelter
+    ///     {
+    ///        "animalId": 6,
+    ///        "name": "Prince",
+    ///        "species": "Dog",
+    ///        "age": 1,
+    ///        "sex": "Male",
+    ///        "adopted": false
+    ///     }
+    ///
+    /// </remarks>
     /// <param name="animal"></param>
+    /// <returns>A newly created Animal</returns>
+    /// <response code="201">Returns the newly created animal</response>
+    /// <response code="400">If the item is null</response> 
+    
     [HttpPost]
     public async Task<ActionResult<Animal>> Post(Animal animal)
     {

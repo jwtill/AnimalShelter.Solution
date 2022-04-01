@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 namespace AnimalShelter.Models
 {
     public class Animal
@@ -13,6 +14,8 @@ namespace AnimalShelter.Models
         public int Age { get; set; }
         public string Sex { get; set; }
         [Required]
+
+        [DefaultValue(false)]
         public bool Adopted { get; set; }
     }
 }
