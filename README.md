@@ -1,9 +1,5 @@
-<p align="center">
-  <u><big> <b>Animal Shelter</b> </big></u>
-</p>
 
-
-
+# Animal Shelter
 
 ------------------------------
 
@@ -98,11 +94,29 @@ An API that serves up info on current animals in our shelter.
 
 ### Using Swagger Documentation 
 Navigate to localhost:5001 or localhost:5000 and you will be redirected to the Swagger index, where you can explore endpoints and their requirements.
+### Routes
+
+## GET /api​/Animals
+- Gets an animal based on URL parameters.
+## POST ​/api​/Animals
+- Adds a new animal
+## GET /api​/Animals​/Adoptable
+- Gets a list of animals that have not been adopted.
+## GET /api​/Animals​/{id}
+- Gets an animal based on ID.
+## PUT /api​/Animals​/{id}
+- Updates an animal with a given ID.
+## DELETE /api​/Animals​/{id}
+- Deletes an animal with a given ID.
+## PATCH /api​/Animals​/{id}
+- Changes a given animal's Adopted status.
+## GET /api​/Animals​/Random
+- Gets a random animal.
 
 
 
 
-### ⚖️ License
+### License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Copyright (C) 2022 Josh Tillinghast. All Rights Reserved.
 
@@ -134,7 +148,7 @@ SOFTWARE.
 
 ### Acknowledgements
 
-Thanks to all my pairs this week for helping me understand the material in different ways, and to my family for support throughout the program
+Thanks to all my pairs this week for helping me understand the material in different ways, and to my family for support throughout the program!
 ------------------------------
 
 <center><a href="#">Return to Top</a></center>
