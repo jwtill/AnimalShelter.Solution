@@ -5,7 +5,7 @@
 
 ------------------------------
 
-## About the Project
+## About 
 
 ### Description
 An API that serves up info on current animals in our shelter.
@@ -26,7 +26,7 @@ Patch route is not functional.
 
 ## Getting Started
 
-### Prerequisites
+### Required Software
 
 #### Install .NET Core
 * On macOS Mojave or later
@@ -46,7 +46,7 @@ Patch route is not functional.
 #### Code Editor
 
   1) Download VSCODE - [VisualStudio Code](https://www.npmjs.com/)
-  2) Click the download for your OS and system.
+  2) Click the download for your operating system.
   3) Open and install.
 
 ### Setup and Use
