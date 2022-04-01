@@ -7,5 +7,6 @@ namespace AnimalShelter.Models
         public string Species { get; set; }
         public int Age { get; set; }
         public string Sex { get; set; }
+        public bool Adopted { get; set; }
     }
 }
