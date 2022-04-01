@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+
 namespace AnimalShelter.Models
 {
     public class Animal
